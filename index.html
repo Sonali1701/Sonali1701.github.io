@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Thompson - Full Stack AI Engineer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+html { 
+    scroll-behavior: smooth; 
+    font-size: 16px; /* Base font size for better readability */
+}
+
+/* Enhanced Project Card Animations */
+.project-card {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.7s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.project-card .project-tags {
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.project-card:hover .project-tags {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+/* Interactive Project Links */
+.project-links a {
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.project-links a:hover {
+    transform: translateX(5px);
+    color: var(--color-primary);
+}
+
+/* Subtle Project Image Hover Effect */
+.project-card img {
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+:root {
+    --color-primary: #1A237E;
+    --color-secondary: #FF4081;
+    --color-background: #FFFFFF;
+    --color-text-primary: #1F2937;
+    --color-text-secondary: #4B5563;
+    --color-border: #E5E7EB;
+}
+
+/* Enhanced Dark Mode Styles */
+body.dark-mode {
+    background-color: #0F172A !important;
+    color: #F8FAFC !important;
+}
+
+body.dark-mode .bg-white, 
+body.dark-mode .skill-card, 
+body.dark-mode .project-card {
+    background-color: #1E293B !important;
+    color: #F8FAFC !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3 {
+    color: #6366F1 !important; /* Indigo for headings */
+}
+
+body.dark-mode .text-gray-600, 
+body.dark-mode .text-gray-700, 
+body.dark-mode .text-gray-800 {
+    color: #94A3B8 !important; /* Slate gray for text */
+}
+
+body.dark-mode nav {
+    background-color: rgba(30, 50, 70, 0.95) !important;
+}
+
+body.dark-mode .dynamic-btn {
+    background-color: #6366F1 !important;
+    color: #F8FAFC !important;
+}
+
+/* Glow and Interaction Effects */
+body.dark-mode .dynamic-btn:hover {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Subtle Gradient Background */
+body.dark-mode header {
+    background: linear-gradient(to bottom right, #0F172A, #1E293B) !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+body {
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    font-family: 'Inter', sans-serif;
+}
+.typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5; /* Reduce background noise */
+}
+/* Enhanced Typography */
+h1, h2, h3 {
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+h1 { font-size: 3rem; line-height: 1.2; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+.section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--color-primary);
+}
+.dot {
+position: absolute;
+background: rgba(26, 35, 126, 0.1);
+border-radius: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+transition: all 0.3s ease;
+}
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
+.reveal {
+opacity: 0;
+transform: translateY(20px);
+transition: all 0.6s ease;
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+.floating-particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+.particle {
+position: absolute;
+background: rgba(26, 35, 126, 0.1);
+border-radius: 50%;
+pointer-events: none;
+}
+@keyframes float {
+0% { transform: translateY(0) rotate(0deg); }
+100% { transform: translateY(-100vh) rotate(360deg); }
+}
+.skill-card {
+transition: all 0.3s ease;
+}
+.skill-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.skill-card:hover .skill-icon {
+transform: scale(1.1);
+}
+.skill-icon {
+transition: transform 0.3s ease;
+}
+.project-card {
+position: relative;
+overflow: hidden;
+}
+.project-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(26, 35, 126, 0.9);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.project-card:hover .project-overlay {
+opacity: 1;
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#1A237E',
+secondary: '#FF4081'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+const darkTheme = {
+    primary: '#6366F1', // Indigo
+    secondary: '#EC4899', // Pink
+    background: '#0F172A', // Dark blue-gray
+    surface: '#1E293B', // Slightly lighter dark blue-gray
+    text: '#F8FAFC', // Almost white
+    textSecondary: '#94A3B8', // Slate gray
+    accent: '#22D3EE', // Cyan for interactive elements
+    border: '#334155' // Dark border color
+};
+
+const lightTheme = {
+    primary: '#1A237E', // Deep blue
+    secondary: '#FF4081', // Pink
+    background: '#FFFFFF',
+    surface: '#F8FAFC', // Very light gray
+    text: '#0F172A', // Almost black
+    textSecondary: '#475569', // Slate gray
+    accent: '#0EA5E9', // Sky blue
+    border: '#E2E8F0' // Light border color
+};
+</script>
+</head>
+<body class="bg-white font-['Inter']">
+<canvas id="interactive-bg"></canvas>
+<nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+<div class="absolute right-4 top-4">
+<button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+<i class="ri-sun-line text-xl"></i>
+</button>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors" data-section="about">About</a>
+<a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors" data-section="projects">Projects</a>
+<a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors" data-section="skills">Skills</a>
+<a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors" data-section="contact">Contact</a>
+</div>
+</div>
+</div>
+</nav>
+<header class="pt-32 pb-24 bg-gradient-to-br from-white to-blue-50 relative overflow-hidden">
+<div class="floating-particles"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between">
+<div class="md:w-1/2 mb-10 md:mb-0 space-y-6">
+<div class="bg-primary/10 inline-block px-4 py-2 rounded-full text-primary font-medium">
+    <span>Welcome to my Portfolio</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+    Hi, I'm <span class="text-primary">Sonali</span>
+</h1>
+<div class="typing text-2xl md:text-3xl text-gray-700 font-semibold mb-4">Full Stack AI Engineer</div>
+<p class="text-gray-600 text-lg leading-relaxed max-w-md">
+    Passionate about building intelligent systems and AI-powered applications. 
+    Equipped with strong theoretical knowledge and hands-on projects in machine learning 
+    and full-stack development.
+</p>
+<div class="flex space-x-4 items-center">
+<button id="downloadResumeBtn" class="dynamic-btn bg-primary text-white px-8 py-3.5 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 group">
+    <i class="ri-download-line text-xl"></i>
+    <span class="font-semibold">Download Resume</span>
+    <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+</button>
+<button id="contactMeBtn" class="dynamic-btn border-2 border-primary text-primary px-8 py-3.5 rounded-lg hover:bg-primary/5 transition-all duration-300 flex items-center justify-center space-x-2 group">
+    <i class="ri-send-plane-line text-xl"></i>
+    <span class="font-semibold">Contact Me</span>
+    <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+</button>
+</div>
+<div class="flex space-x-6 mt-8">
+<a href="#" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+<i class="ri-github-line text-2xl"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+<i class="ri-linkedin-line text-2xl"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+<i class="ri-twitter-line text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="md:w-1/2">
+<img src="Sonali(Portfolio image).jpg"
+alt="Alex Thompson"
+class="rounded-2xl shadow-2xl w-full max-w-lg mx-auto">
+</div>
+</div>
+</div>
+</header>
+<section id="about" class="py-24 bg-white reveal">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="section-title text-4xl font-bold">About Me</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<p class="text-gray-600 text-xl">As a passionate Full Stack AI Engineer, I bring fresh perspectives and innovative solutions to software development. My strong foundation in computer science combined with cutting-edge AI knowledge enables me to build intelligent and scalable applications that solve real-world problems.</p>
+<div class="space-y-4">
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+<h3 class="text-2xl font-semibold mb-4 text-primary">Experience Highlights</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+<span class="text-gray-600 text-lg">Developed innovative AI-powered solutions during academic projects</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+<span class="text-gray-600">Built cloud-native applications using AWS and Azure</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+<span class="text-gray-600">Active contributor to open-source AI projects</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white p-6 rounded-xl shadow-lg">
+<h3 class="text-xl font-semibold mb-6 text-primary">Technical Proficiency</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-gray-700">Full Stack Development</span>
+<span class="text-primary">95%</span>
+</div>
+<div class="h-2 bg-gray-200 rounded-full">
+<div class="h-2 bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-gray-700">Cloud Architecture</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="h-2 bg-gray-200 rounded-full">
+<div class="h-2 bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-gray-700">System Design</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-2 bg-gray-200 rounded-full">
+<div class="h-2 bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg">
+<h3 class="text-xl font-semibold mb-4 text-primary">Current Focus</h3>
+<p class="text-gray-600">Currently focused on building scalable microservices architectures and exploring machine learning applications in software development.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects" class="py-24 bg-gray-50 reveal">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="section-title text-4xl font-bold dark:text-black">Featured Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 project-card" data-project-type="ai" data-difficulty="advanced">
+<img src="job.png"
+alt="Project 1"
+class="w-full h-48 object-cover">
+<div class="project-overlay text-white p-6">
+<h3 class="text-xl font-semibold mb-4">Berojgar(Smart AI job platform)</h3>
+<p class="text-center mb-4">Click to view details</p>
+<div class="flex space-x-4">
+<button class="bg-white text-primary px-4 py-2 rounded-full">View Demo</button>
+<button class="border-2 border-white text-white px-4 py-2 rounded-full">Source Code</button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Berojgar(Smart AI job platform)</h3>
+<p class="text-gray-800 mb-4 text-lg">Berojgar is a comprehensive job application platform designed to help job seekers find relevant positions, optimize their resumes for Applicant Tracking Systems (ATS), and streamline the application process.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Flask</span>
+<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">APIs</span>
+<span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">HTML CSS JS</span>
+<span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Machine Learning</span>
+</div>
+<div class="flex space-x-4">
+<a href="#" class="text-primary hover:text-primary/80 flex items-center">
+<i class="ri-external-link-line mr-1"></i> Live Demo
+</a>
+<a href="#" class="text-gray-600 hover:text-gray-800 flex items-center">
+<i class="ri-github-line mr-1"></i> Code
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+<img src="blockchain.jpeg"
+alt="Project 2"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">LegiChain_AI</h3>
+<p class="text-gray-800 mb-4">LegiChain is an AI + Blockchain-powered platform to analyze, store, and sign legal contracts. This system combines the power of natural language processing, Ethereum smart contracts, and IPFS decentralized storage..</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Python</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Machine Learning</span>
+<span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">APIs</span>
+<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Blockchain</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Flask</span>
+</div>
+<div class="flex space-x-4">
+<a href="#" class="text-primary hover:text-primary/80 flex items-center">
+<i class="ri-external-link-line mr-1"></i> Live Demo
+</a>
+<a href="https://github.com/Sonali1701/LegiChain_AI" class="text-gray-600 hover:text-gray-800 flex items-center">
+<i class="ri-github-line mr-1"></i> Code
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+<img src="finger.png"
+alt="Project 3"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">FingerPrint Matcher</h3>
+<p class="text-gray-800 mb-4">FingerPrint Matcher is a biometric authentication system that uses machine learning to match fingerprints and verify user identity. It uses a pre-trained machine learning model to compare fingerprints and determine if they match.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Python</span>
+<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">TensorFlow</span>
+<span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Flask</span>
+</div>
+<div class="flex space-x-4">
+<a href="#" class="text-primary hover:text-primary/80 flex items-center">
+<i class="ri-external-link-line mr-1"></i> Live Demo
+</a>
+<a href="https://github.com/Sonali1701/FingerPrint_Matcher" class="text-gray-600 hover:text-gray-800 flex items-center">
+<i class="ri-github-line mr-1"></i> Code
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="py-24 bg-white reveal">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="section-title text-4xl font-bold">Skills & Expertise</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow skill-card">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mb-4 skill-icon">
+<i class="ri-brain-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold mb-4">Machine Learning</h3>
+<ul class="space-y-2 text-gray-800">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+TensorFlow / PyTorch
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+Natural Language Processing
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+Computer Vision
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+Deep Learning
+</li>
+</ul>
+</div>
+<div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow skill-card">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mb-4 skill-icon">
+<i class="ri-code-s-slash-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Full Stack Development</h3>
+<ul class="space-y-2 text-gray-800">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+React.js / Python
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+FastAPI / Flask
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+RESTful APIs
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+MongoDB / PostgreSQL
+</li>
+</ul>
+</div>
+<div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow skill-card">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mb-4 skill-icon">
+<i class="ri-cloud-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">MLOps & Cloud</h3>
+<ul class="space-y-2 text-gray-800">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+MLflow / Kubeflow
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+Docker / Kubernetes
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+AWS SageMaker
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-green-500 mr-2"></i>
+CI/CD for ML
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-50 reveal">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-bold text-center mb-16 dark:text-black">Get in Touch</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<form id="contactForm" class="space-y-6">
+<div>
+<label class="block text-base font-medium text-gray-700 mb-1">Name</label>
+<input type="text" style="color: black;" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+<textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required></textarea>
+</div>
+<button type="submit" mailto="vs5106717@gmail.com" class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div>
+<div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+<h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+<div class="space-y-4">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-map-pin-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">New Delhi, India</span>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-mail-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">vs5106717@gmail.com</span>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-phone-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">+91 9310492029</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg">
+<h3 class="text-xl font-semibold mb-4">Office Hours</h3>
+<div class="space-y-4">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-time-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">Mon - Fri: 9:00 AM - 6:00 PM</span>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-calendar-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">Available for remote meetings</span>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-global-line text-xl text-primary"></i>
+</div>
+<span class="text-gray-800">Flexible timezone accommodation</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-gray-900 text-white py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div>
+<p class="mt-4 text-gray-400 text-lg">Building intelligent systems for tomorrow</p>
+<div class="flex space-x-4 mt-6">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transform hover:scale-110 transition-all duration-300">
+<i class="ri-github-line text-xl"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transform hover:scale-110 transition-all duration-300">
+<i class="ri-linkedin-line text-xl"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transform hover:scale-110 transition-all duration-300">
+<i class="ri-twitter-line text-xl"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#about" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">About</a></li>
+<li><a href="#projects" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Projects</a></li>
+<li><a href="#skills" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Skills</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">AI Development</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Web Development</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Cloud Solutions</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Consulting</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+<ul class="space-y-3">
+<li class="flex items-center text-gray-400 hover:text-white transition-colors">
+<i class="ri-map-pin-line mr-2"></i>
+New Delhi, India
+</li>
+<li class="flex items-center text-gray-400 hover:text-white transition-colors">
+<i class="ri-mail-line mr-2"></i>
+vs5106717@gmail.com
+</li>
+<li class="flex items-center text-gray-400 hover:text-white transition-colors">
+<i class="ri-phone-line mr-2"></i>
++91 9310492029
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+<p>&copy; 2025 Sonali Singh. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+let isDarkMode = false;
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+function toggleTheme() {
+    // Toggle dark mode state
+    isDarkMode = !isDarkMode;
+    const theme = isDarkMode ? darkTheme : lightTheme;
+    
+    // Update CSS variables for global theming
+    document.documentElement.style.setProperty('--color-primary', theme.primary);
+    document.documentElement.style.setProperty('--color-secondary', theme.secondary);
+    document.documentElement.style.setProperty('--color-background', theme.background);
+    document.documentElement.style.setProperty('--color-surface', theme.surface);
+    document.documentElement.style.setProperty('--color-text', theme.text);
+    document.documentElement.style.setProperty('--color-text-secondary', theme.textSecondary);
+    
+    // Apply theme to body
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    
+    // Update theme toggle button
+    themeToggle.innerHTML = isDarkMode 
+        ? '<i class="ri-moon-fill text-2xl text-indigo-300 animate-pulse"></i>' 
+        : '<i class="ri-sun-fill text-2xl text-yellow-500 animate-spin"></i>';
+    
+    // Theme-specific adjustments
+    const elementsToAdjust = [
+        { selector: 'nav', darkBg: 'rgba(30, 50, 70, 0.95)', lightBg: 'rgba(255, 255, 255, 0.95)' },
+        { selector: '.bg-white, .skill-card', darkBg: theme.surface, lightBg: '#FFFFFF' },
+        { selector: 'header', 
+          darkBg: 'linear-gradient(to bottom right, #0F172A, #1E293B)', 
+          lightBg: 'linear-gradient(to bottom right, #ffffff, #f0f7ff)' }
+    ];
+    
+    elementsToAdjust.forEach(item => {
+        const elements = document.querySelectorAll(item.selector);
+        elements.forEach(el => {
+            el.style.backgroundColor = isDarkMode ? item.darkBg : item.lightBg;
+            el.style.color = isDarkMode ? theme.text : theme.text;
+        });
+    });
+    
+    // Adjust text and link colors
+    const textSelectors = [
+        '.text-gray-600, .text-gray-700, .text-gray-800',
+        'nav a',
+        'h1, h2, h3',
+        '.skill-card ul li'
+    ];
+    
+    textSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+            el.style.color = isDarkMode ? theme.text : theme.text;
+        });
+    });
+    
+    // Optional: Add sound effect or vibration for theme change
+    try {
+        navigator.vibrate?.(50); // Vibrate for 50ms on supported devices
+    } catch (error) {}
+    
+    // Store theme preference in local storage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+}
+themeToggle.addEventListener('click', toggleTheme);
+const canvas = document.getElementById('interactive-bg');
+const ctx = canvas.getContext('2d');
+let dots = [];
+let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+function resizeCanvas() {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+class Dot {
+constructor() {
+this.x = Math.random() * canvas.width;
+this.y = Math.random() * canvas.height;
+this.size = Math.random() * 2 + 1;
+this.speedX = Math.random() * 2 - 1;
+this.speedY = Math.random() * 2 - 1;
+}
+update() {
+if(this.x > canvas.width || this.x < 0) this.speedX *= -1;
+if(this.y > canvas.height || this.y < 0) this.speedY *= -1;
+this.x += this.speedX;
+this.y += this.speedY;
+const dx = mouse.x - this.x;
+const dy = mouse.y - this.y;
+const distance = Math.sqrt(dx * dx + dy * dy);
+if(distance < 100) {
+const angle = Math.atan2(dy, dx);
+this.x -= Math.cos(angle) * 1;
+this.y -= Math.sin(angle) * 1;
+}
+}
+draw() {
+ctx.beginPath();
+ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+ctx.fillStyle = 'rgba(26, 35, 126, 0.1)';
+ctx.fill();
+}
+}
+function init() {
+dots = [];
+for(let i = 0; i < 100; i++) {
+dots.push(new Dot());
+}
+}
+function animate() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+dots.forEach(dot => {
+dot.update();
+dot.draw();
+});
+requestAnimationFrame(animate);
+}
+canvas.addEventListener('mousemove', (e) => {
+mouse.x = e.clientX;
+mouse.y = e.clientY;
+});
+init();
+animate();
+function createParticles() {
+const particlesContainer = document.querySelector('.floating-particles');
+const numberOfParticles = 50;
+for (let i = 0; i < numberOfParticles; i++) {
+const particle = document.createElement('div');
+particle.className = 'particle';
+const size = Math.random() * 15 + 5;
+const startPositionLeft = Math.random() * 100;
+const animationDuration = Math.random() * 20 + 10;
+const delay = Math.random() * 5;
+particle.style.width = `${size}px`;
+particle.style.height = `${size}px`;
+particle.style.left = `${startPositionLeft}%`;
+particle.style.animation = `float ${animationDuration}s linear ${delay}s infinite`;
+particlesContainer.appendChild(particle);
+}
+}
+createParticles();
+
+// Consolidated Project Card Interactions
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+    // Click to toggle overlay
+    card.addEventListener('click', () => {
+        const overlay = card.querySelector('.project-overlay');
+        overlay.style.opacity = overlay.style.opacity === '1' ? '0' : '1';
+    });
+
+    // Hover sound and tooltip
+    const hoverSound = new Audio('data:audio/wav;base64,UklGRigCAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhhAEAAAAAAAAAAA==');
+    
+    card.addEventListener('mouseenter', () => {
+        // Subtle hover sound
+        hoverSound.volume = 0.2;
+        hoverSound.play();
+        
+        // Add interactive tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'absolute top-2 right-2 bg-primary text-white px-3 py-1 rounded-full text-xs z-10 shadow-lg';
+        tooltip.textContent = card.dataset.projectType || 'Project';
+        card.appendChild(tooltip);
+        
+        // Highlight project tags
+        const tags = card.querySelectorAll('.project-tags span');
+        tags.forEach(tag => {
+            tag.classList.add('animate-pulse');
+        });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        // Remove tooltip
+        const tooltip = card.querySelector('.absolute.top-2.right-2');
+        if (tooltip) card.removeChild(tooltip);
+        
+        // Remove tag animations
+        const tags = card.querySelectorAll('.project-tags span');
+        tags.forEach(tag => {
+            tag.classList.remove('animate-pulse');
+        });
+    });
+});
+
+const text = "Full Stack AI Engineer";
+const typingElement = document.querySelector('.typing');
+let i = 0;
+function type() {
+if (i < text.length) {
+typingElement.textContent = text.substring(0, i + 1);
+i++;
+setTimeout(type, 100);
+}
+}
+type();
+function reveal() {
+const reveals = document.querySelectorAll('.reveal');
+reveals.forEach(element => {
+const elementTop = element.getBoundingClientRect().top;
+const windowHeight = window.innerHeight;
+if (elementTop < windowHeight - 100) {
+element.classList.add('active');
+}
+});
+}
+window.addEventListener('scroll', reveal);
+reveal();
+
+// Dynamic Button Functionality
+const downloadResumeBtn = document.getElementById('downloadResumeBtn');
+const contactMeBtn = document.getElementById('contactMeBtn');
+
+downloadResumeBtn.addEventListener('click', async (e) => {
+    e.preventDefault(); // Prevent any default navigation
+    e.stopPropagation(); // Stop event from bubbling up
+    
+    // Detailed logging for debugging
+    console.log('Download Resume Button Clicked');
+    
+    // Create a direct download link for the resume
+    const resumeUrl = 'Sonali_Singh_Resume.pdf';
+    
+    // Create error notification function
+    const showErrorNotification = (message) => {
+        const errorNotification = document.createElement('div');
+        errorNotification.className = 'fixed bottom-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-bounce';
+        errorNotification.textContent = message;
+        document.body.appendChild(errorNotification);
+        
+        setTimeout(() => {
+            errorNotification.classList.add('animate-fadeOut');
+            setTimeout(() => document.body.removeChild(errorNotification), 500);
+        }, 3000);
+    };
+    
+    try {
+        // Check if the file exists using a HEAD request
+        const headResponse = await fetch(resumeUrl, { method: 'HEAD' });
+        
+        if (!headResponse.ok) {
+            throw new Error('Resume file not found');
+        }
+        
+        // Fetch the actual file
+        const fileResponse = await fetch(resumeUrl);
+        
+        if (!fileResponse.ok) {
+            throw new Error(`HTTP error! status: ${fileResponse.status}`);
+        }
+        
+        // Convert response to blob
+        const blob = await fileResponse.blob();
+        
+        // Create a temporary anchor element for download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = window.URL.createObjectURL(blob);
+        downloadLink.download = 'Sonali_Singh_Resume_2025.pdf';
+        
+        // Ensure the link is not visible
+        downloadLink.style.display = 'none';
+        document.body.appendChild(downloadLink);
+        
+        // Trigger download with additional checks
+        if (downloadLink.href) {
+            downloadLink.click();
+            
+            // Visual and audio feedback
+            downloadResumeBtn.classList.add('animate-pulse', 'ring-4', 'ring-green-500');
+            
+            // Create success notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300';
+            notification.textContent = 'Resume Downloaded Successfully!';
+            document.body.appendChild(notification);
+            
+            // Clean up
+            setTimeout(() => {
+                window.URL.revokeObjectURL(downloadLink.href);
+                document.body.removeChild(downloadLink);
+                downloadResumeBtn.classList.remove('animate-pulse', 'ring-4', 'ring-green-500');
+                notification.style.transform = 'translateY(200%)';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        } else {
+            throw new Error('Download link creation failed');
+        }
+        
+    } catch (error) {
+        console.error('Resume download failed:', error);
+        
+        // More detailed error handling
+        const errorMessage = error.message || 'Unable to download resume';
+        showErrorNotification(`Download Failed: ${errorMessage}`);
+        
+        // Optional: Fallback download method
+        window.open(resumeUrl, '_blank');
+    }
+});
+
+contactMeBtn.addEventListener('click', () => {
+    // Smooth scroll to contact section or open contact modal
+    const contactSection = document.getElementById('contact');
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+
+    // Optional: Add visual feedback
+    contactMeBtn.classList.add('ring-2', 'ring-primary');
+    setTimeout(() => {
+        contactMeBtn.classList.remove('ring-2', 'ring-primary');
+    }, 1000);
+});
+
+// Interactive Project Card Functionality with Event Delegation
+const projectContainer = document.querySelector('.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8');
+
+// Create a single audio element for hover sounds
+const hoverSound = new Audio('data:audio/wav;base64,UklGRigCAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhhAEAAAAAAAAAAA==');
+
+// Event delegation for project card interactions
+projectContainer.addEventListener('mouseenter', (event) => {
+    const card = event.target.closest('.project-card');
+    if (card) {
+        // Subtle hover sound
+        hoverSound.volume = 0.2;
+        hoverSound.play();
+        
+        // Add interactive tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'absolute top-2 right-2 bg-primary text-white px-3 py-1 rounded-full text-xs z-10 shadow-lg';
+        tooltip.textContent = card.dataset.projectType || 'Project';
+        card.appendChild(tooltip);
+        
+        // Highlight project tags
+        const tags = card.querySelectorAll('.project-tags span');
+        tags.forEach(tag => {
+            tag.classList.add('animate-pulse');
+        });
+    }
+}, true);
+
+projectContainer.addEventListener('mouseleave', (event) => {
+    const card = event.target.closest('.project-card');
+    if (card) {
+        // Remove tooltip
+        const tooltip = card.querySelector('.absolute.top-2.right-2');
+        if (tooltip) card.removeChild(tooltip);
+        
+        // Remove tag animations
+        const tags = card.querySelectorAll('.project-tags span');
+        tags.forEach(tag => {
+            tag.classList.remove('animate-pulse');
+        });
+    }
+}, true);
+
+// Click to toggle overlay for all project cards
+projectContainer.addEventListener('click', (event) => {
+    const card = event.target.closest('.project-card');
+    if (card) {
+        const overlay = card.querySelector('.project-overlay');
+        if (overlay) {
+            overlay.style.opacity = overlay.style.opacity === '1' ? '0' : '1';
+        }
+    }
+});
+
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+const section = document.getElementById(link.getAttribute('data-section'));
+const navHeight = document.querySelector('nav').offsetHeight;
+const sectionTop = section.offsetTop - navHeight;
+window.scrollTo({
+top: sectionTop,
+behavior: 'smooth'
+});
+navLinks.forEach(navLink => navLink.classList.remove('text-primary'));
+link.classList.add('text-primary');
+});
+});
+document.addEventListener('scroll', () => {
+const sections = ['about', 'projects', 'skills', 'contact'];
+const navHeight = document.querySelector('nav').offsetHeight;
+const currentSection = sections.find(section => {
+const element = document.getElementById(section);
+const rect = element.getBoundingClientRect();
+return rect.top <= navHeight + 100 && rect.bottom >= navHeight;
+});
+if (currentSection) {
+navLinks.forEach(link => {
+if (link.getAttribute('data-section') === currentSection) {
+link.classList.add('text-primary');
+} else {
+link.classList.remove('text-primary');
+}
+});
+}
+});
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(contactForm);
+const data = Object.fromEntries(formData);
+console.log('Form submitted:', data);
+const notification = document.createElement('div');
+notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-0';
+notification.textContent = 'Message sent successfully!';
+document.body.appendChild(notification);
+setTimeout(() => {
+notification.style.transform = 'translateY(200%)';
+setTimeout(() => notification.remove(), 300);
+}, 3000);
+contactForm.reset();
+});
+});
+</script>
+</body>
+</html>
